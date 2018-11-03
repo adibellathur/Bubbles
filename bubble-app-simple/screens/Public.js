@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 class Public extends Component {
   render() {
     return (
-      <View styles={styles.container}>
+      <View style={styles.container}>
         <Text>Public</Text>
       </View>
     );

@@ -4,11 +4,7 @@ import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 class Library extends Component {
     render() {
       return (
-        <View styles={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center'
-        }}>
+        <View style={styles.container}>
           <Text>Library</Text>
         </View>
       );
@@ -18,7 +14,7 @@ class Library extends Component {
 export default Library;
 
 const styles = StyleSheet.create({
-    view: {
+    container: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'

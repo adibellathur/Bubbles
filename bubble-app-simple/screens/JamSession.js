@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 
 class JamSession extends Component {
   render() {
     return (
-      <View styles={styles.container}>
-        <Text>JamSession</Text>
-      </View>
+        <View style={styles.container}>
+          <Text>JamSession</Text>
+        </View>
     );
   }
 }
-
-export default JamSession;
 
 const styles = StyleSheet.create({
     container: {
@@ -20,3 +18,5 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 });
+
+export default JamSession;
