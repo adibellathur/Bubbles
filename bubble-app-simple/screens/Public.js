@@ -1,13 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import { StyleSheet, Text, View } from 'react-native';
 
-class Library extends Component {
-    return ({
-        <View style={styles.container}>
-            <Text>Library</Text>
-        </View>
-    });
+class Public extends Component {
+  render() {
+    return (
+      <View styles={styles.container}>
+        <Text>Public</Text>
+      </View>
+    );
+  }
 }
+
+export default Public;
 
 const styles = StyleSheet.create({
     container: {

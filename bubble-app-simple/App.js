@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation';
-import Icon from 'react-native-icons/Ionicons'
+import Icon from 'react-native-vector-icons/Ionicons';
 
-import Public from './screens/Public'
-import Library from './screens/Library'
-import JamSession from './screens/JamSession'
+import Public from './screens/Public';
+import Library from './screens/Library';
+import JamSession from './screens/JamSession';
 
 class App extends React.Component {
   render() {
@@ -23,7 +23,7 @@ export default createBottomTabNavigator({
       navigationOptions: {
            tabBarLabel: 'PUBLIC',
            tabBarIcon: ({tintColor}) => (
-               <Icon name="ios-person-outline"
+               <Icon name="ios-people"
                color={tintColor}
                size={24}/>
            )
@@ -34,7 +34,7 @@ export default createBottomTabNavigator({
       navigationOptions: {
            tabBarLabel: 'LIBRARY',
            tabBarIcon: ({tintColor}) => (
-               <Icon name="ios-heart-outline"
+               <Icon name="ios-globe"
                color={tintColor}
                size={24}/>
            )
@@ -45,7 +45,7 @@ export default createBottomTabNavigator({
       navigationOptions: {
            tabBarLabel: 'JAMSESSION',
            tabBarIcon: ({tintColor}) => (
-               <Icon name="ios-chatboxes-outline"
+               <Icon name="ios-globe"
                color={tintColor}
                size={24}/>
            )
@@ -60,7 +60,7 @@ export default createBottomTabNavigator({
             backgroundColor: 'white',
             borderTopWidth: 0,
             shadowOffset: {width:5, height:3},
-            shadowColor: black,
+            shadowColor: 'black',
             shadowOpacity: 0.5,
             elevation: 5
         }
