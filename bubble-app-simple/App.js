@@ -34,7 +34,7 @@ export default createBottomTabNavigator({
       navigationOptions: {
            tabBarLabel: 'LIBRARY',
            tabBarIcon: ({tintColor}) => (
-               <Icon name="ios-globe"
+               <Icon name="ios-home"
                color={tintColor}
                size={24}/>
            )
@@ -45,7 +45,7 @@ export default createBottomTabNavigator({
       navigationOptions: {
            tabBarLabel: 'JAMSESSION',
            tabBarIcon: ({tintColor}) => (
-               <Icon name="ios-globe"
+               <Icon name="ios-musical-notes"
                color={tintColor}
                size={24}/>
            )
@@ -54,7 +54,7 @@ export default createBottomTabNavigator({
 },
 {
     tabBarOptions: {
-        activeTintColor: 'blue',
+        activeTintColor: 'blueviolet',
         inactiveTintColor: 'grey',
         style: {
             backgroundColor: 'white',
@@ -63,8 +63,9 @@ export default createBottomTabNavigator({
             shadowColor: 'black',
             shadowOpacity: 0.5,
             elevation: 5
-        }
-    }
+        },
+    },
+    initialRouteName: 'Library'
 });
 
 const styles = StyleSheet.create({
