@@ -8,54 +8,11 @@ import { StyleSheet,
   Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {FAB} from 'react-native-paper';
-import Expo, { Asset, Audio, FileSystem, Font, Permissions } from 'expo';
+import { Asset, Audio, FileSystem, Font, Permissions } from 'expo';
 
 class Library extends Component {
   constructor(props) {
     super(props);
-    this.recording = null;
-    this.sound = null;
-    this.isSeeking = false;
-    this.shouldPlayAtEndOfSeek = false;
-    this.state = {
-      haveRecordingPermissions: false,
-      isLoading: false,
-      isPlaybackAllowed: false,
-      muted: false,
-      soundPosition: null,
-      soundDuration: null,
-      recordingDuration: null,
-      shouldPlay: false,
-      isPlaying: false,
-      isRecording: false,
-      fontLoaded: false,
-      shouldCorrectPitch: true,
-      volume: 1.0,
-      rate: 1.0,
-    };
-    this.recordingSettings = JSON.parse(JSON.stringify(Audio.RECORDING_OPTIONS_PRESET_LOW_QUALITY));
-  }
-
-  async componentDidMount() {
-    try {
-      Audio.setAudioModeAsync({
-        playsInBackgroundModeIOS: true,
-        playsInBackgroundModeAndroid: true,
-        allowsRecordingIOS: false,
-        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
-        playsInSilentModeIOS: true,
-        playsInSilentLockedModeIOS: true,
-        shouldDuckAndroid: true,
-        interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-        playThroughEarpieceAndroid: false
-      });
-    } catch (e) {
-      this.props.errorCallback({
-        type: 'NON_FATAL',
-        message: 'setAudioModeAsync error',
-        obj: e,
-      });
-    }
   }
 
   render() {
@@ -80,18 +37,30 @@ class Library extends Component {
         icon="mic"
         label='Record'
           onPress={ async () => {
-            const soundObject = new Audio.Sound();
             try {
-              await soundObject.loadAsync(require('https://song.link/us/i/159293848'),
-              initialStatus = {},
-              onPlaybackStatusUpdate = null,
-              downloadFirst = true);
+              await Audio.setAudioModeAsync({
+                allowsRecordingIOS: false,
+                interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+                playsInSilentModeIOS: true,
+                shouldDuckAndroid: true,
+                playThroughEarpieceAndroid: false,
+                interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX
+              });
+              await Permissions.askAsync(Permissions.AUDIO_RECORDING);
+              await Expo.Audio.setIsEnabledAsync(true);
+              const soundObject = new Audio.Sound();
+              await soundObject.loadAsync(
+                require('../assets/sounds/01KillJayZ.mp3'),
+                initialStatus={androidImplementation: 'MediaPlayer'},
+                downloadFirst = true
+              );
               await soundObject.playAsync();
             } catch (error) {
-              console.log(error);
-              throw error;
+              console.log("ERROR: " + error);
             }
           }}
+
+
         />
       </SafeAreaView>
 
