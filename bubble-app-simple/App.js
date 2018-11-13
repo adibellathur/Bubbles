@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Public from './screens/Public';
 import Library from './screens/Library';
 import JamSession from './screens/JamSession';
+import {Color} from './assets/colors';
 
 class App extends React.Component {
   render() {
@@ -18,61 +19,61 @@ class App extends React.Component {
 }
 
 export default createBottomTabNavigator({
-  Public: {
-      screen: Public,
-      navigationOptions: {
-           tabBarLabel: 'PUBLIC',
-           tabBarIcon: ({tintColor}) => (
-               <Icon name="ios-people"
-               color={tintColor}
-               size={24}/>
-           )
-       }
+    Public: {
+        screen: Public,
+        navigationOptions: {
+             tabBarLabel: 'PUBLIC',
+             tabBarIcon: ({tintColor}) => (
+                 <Icon name="ios-people"
+                 color={tintColor}
+                 size={24}/>
+             ),
+         }
+    },
+    Library: {
+        screen: Library,
+        navigationOptions: {
+             tabBarLabel: 'LIBRARY',
+             tabBarIcon: ({tintColor}) => (
+                 <Icon name="ios-home"
+                 color={tintColor}
+                 size={24}/>
+             ),
+         }
+    },
+    JamSession: {
+        screen: JamSession,
+        navigationOptions: {
+             tabBarLabel: 'JAMSESSION',
+             tabBarIcon: ({tintColor}) => (
+                 <Icon name="ios-musical-notes"
+                 color={tintColor}
+                 size={24}/>
+             ),
+        }
+      }
   },
-  Library: {
-      screen: Library,
-      navigationOptions: {
-           tabBarLabel: 'LIBRARY',
-           tabBarIcon: ({tintColor}) => (
-               <Icon name="ios-home"
-               color={tintColor}
-               size={24}/>
-           )
-       }
-  },
-  JamSession: {
-      screen: JamSession,
-      navigationOptions: {
-           tabBarLabel: 'JAMSESSION',
-           tabBarIcon: ({tintColor}) => (
-               <Icon name="ios-musical-notes"
-               color={tintColor}
-               size={24}/>
-           )
-       }
-  }
-},
-{
+  {
     tabBarOptions: {
-        activeTintColor: 'blueviolet',
         inactiveTintColor: 'grey',
+        activeTintColor: Color.primaryblue,
         style: {
-            backgroundColor: 'white',
+            backgroundColor: Color.backgroundtabbar,
             borderTopWidth: 0,
             shadowOffset: {width:5, height:3},
             shadowColor: 'black',
-            shadowOpacity: 0.5,
-            elevation: 5
+            shadowOpacity: 0.9,
+            elevation: 1
         },
     },
-    initialRouteName: 'Library'
-});
+      initialRouteName: 'Library'
+  });
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Color.background,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+  });
