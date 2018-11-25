@@ -7,6 +7,8 @@ import { StyleSheet,
   TextInput,
   Platform,
   TouchableOpacity } from 'react-native';
+import { Card, ListItem, Button } from 'react-native-elements';
+
 import { Asset, Audio, FileSystem, Font, Permissions } from 'expo';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {FAB} from 'react-native-paper';

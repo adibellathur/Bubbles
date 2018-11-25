@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import Public from './screens/Public';
 import Library from './screens/Library';
+import LibraryNew from './screens/LibraryNew'; 
 import JamSession from './screens/JamSession';
 import {Color} from './assets/colors';
 
@@ -34,6 +35,17 @@ export default createBottomTabNavigator({
         screen: Library,
         navigationOptions: {
              tabBarLabel: 'LIBRARY',
+             tabBarIcon: ({tintColor}) => (
+                 <Icon name="ios-home"
+                 color={tintColor}
+                 size={24}/>
+             ),
+         }
+    },
+    LibNew: {
+        screen: LibraryNew,
+        navigationOptions: {
+             tabBarLabel: 'LibNew',
              tabBarIcon: ({tintColor}) => (
                  <Icon name="ios-home"
                  color={tintColor}
