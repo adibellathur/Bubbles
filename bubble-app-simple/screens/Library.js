@@ -16,12 +16,6 @@ import {Color} from '../assets/colors'
 class Library extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      playing: false,
-      isRecording: false,
-      isPlaying: false,
-      items: null
-    }
 
     Audio.setAudioModeAsync({
       allowsRecordingIOS: true,
@@ -32,15 +26,16 @@ class Library extends Component {
       playThroughEarpieceAndroid: false,
       interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX
     });
+
     Permissions.askAsync(Permissions.AUDIO_RECORDING);
     Expo.Audio.setIsEnabledAsync(true);
 
-    this.soundObject = new Audio.Sound();
-    this.soundObject.loadAsync(
-      require('../assets/sounds/01KillJayZ.mp3'),
-      initialStatus={androidImplementation: 'MediaPlayer'},
-      downloadFirst = true
-    );
+    this.state = {
+      playing: false,
+      isRecording: false,
+      isPlaying: false,
+      items: null
+    }
     this.state.items = [
       { id: 0, name: 'TURQUOISE', code: '#1abc9c', sound: null , src: require('../assets/sounds/01KillJayZ.mp3') }, { id: 1,name: 'EMERALD', code: '#2ecc71', sound: null , src: require('../assets/sounds/02TheStoryofOJ.mp3')  },
       { id: 2, name: 'PETER RIVER', code: '#3498db', sound: null , src: require('../assets/sounds/03Smile.mp3') }, { id: 3, name: 'AMETHYST', code: '#9b59b6', sound: null , src: require('../assets/sounds/04CaughtTheirEyes.mp3') },
@@ -61,6 +56,13 @@ class Library extends Component {
       this.sounds.push(new_sound);
       this.playing.push(false);
     }
+
+    this.soundObject = new Audio.Sound();
+    this.soundObject.loadAsync(
+      require('../assets/sounds/01KillJayZ.mp3'),
+      initialStatus={androidImplementation: 'MediaPlayer'},
+      downloadFirst = true
+    );
 
     this.recording = new Expo.Audio.Recording();
     this.recordingSettings = JSON.parse(JSON.stringify(Audio.RECORDING_OPTIONS_PRESET_LOW_QUALITY));
