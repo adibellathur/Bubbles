@@ -1,29 +1,41 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage } from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
+import SafeAreaView from 'react-native-safe-area-view';
 
-import Public from './screens/Public';
-import Library from './screens/Library';
-import LibraryNew from './screens/LibraryNew'; 
+import BrowseStack from './screens/BrowseStack';
+import LibraryStack from './screens/LibraryStack';
+import ProjectScreen from './screens/Project';
 import JamSession from './screens/JamSession';
 import {Color} from './assets/colors';
 
 class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.initData();
+  }
+
+  async initData() {
+    await AsyncStorage.setItem('test', 'I like to save it.');
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+        <BottomTabNav/>
     );
   }
+
 }
 
-export default createBottomTabNavigator({
-    Public: {
-        screen: Public,
+export default App;
+
+const BottomTabNav = createBottomTabNavigator({
+    Browse: {
+        screen: BrowseStack,
         navigationOptions: {
-             tabBarLabel: 'PUBLIC',
+             tabBarLabel: 'Browse',
              tabBarIcon: ({tintColor}) => (
                  <Icon name="ios-people"
                  color={tintColor}
@@ -32,20 +44,9 @@ export default createBottomTabNavigator({
          }
     },
     Library: {
-        screen: Library,
+        screen: LibraryStack,
         navigationOptions: {
-             tabBarLabel: 'LIBRARY',
-             tabBarIcon: ({tintColor}) => (
-                 <Icon name="ios-home"
-                 color={tintColor}
-                 size={24}/>
-             ),
-         }
-    },
-    LibNew: {
-        screen: LibraryNew,
-        navigationOptions: {
-             tabBarLabel: 'LibNew',
+             tabBarLabel: 'Library',
              tabBarIcon: ({tintColor}) => (
                  <Icon name="ios-home"
                  color={tintColor}

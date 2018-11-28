@@ -17,59 +17,44 @@ import {Asset, FileSystem, Font, Permissions} from 'expo';
 import { Card, ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Color} from '../assets/colors';
+// import UserPage from '../components/UserPage';
 
-class LibraryScreen extends Component {
-    constructor(props) {
-        super(props);
-    }
+class BrowseScreen extends Component {
+  render() {
+    return (
+      // <SafeAreaView style={styles.container}>
+      //   <View style={styles.container}>
+      //     <Text>Public</Text>
+      //     <UserPage message = {'Generic userpage message!!'}/>
+      //   </View>
+      // </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+          <View>
+              <StatusBar backgroundColor="blue" barStyle="light-content"/>
+          </View>
+          <View style={styles.header}>
+              <Text style={styles.title}>Browse</Text>
+          </View>
+          <View style={styles.searchbararea}>
+              <View style={styles.searchbar}>
+                  <Icon name='ios-search' size={20} style={styles.searchbaricon}/>
+              <TextInput placeholder='Search' placeholderTextColor='grey' style={styles.searchbartext}/>
+              </View>
+          </View>
+          <View>
+            <Text>THIS IS SPACE TO DO STUFF</Text>
+          </View>
+      </SafeAreaView>
+    );
+  }
 
-    static navigationOptions = {
-      header: null
-    }
+  static navigationOptions = {
+    header: null
+  }
 
-    render() {
-        return (
-            <SafeAreaView style={styles.container}>
-                <View>
-                    <StatusBar backgroundColor="blue" barStyle="light-content"/>
-                </View>
-                <View style={styles.header}>
-                    <Text style={styles.title}>Library</Text>
-                </View>
-                <View style={styles.searchbararea}>
-                    <View style={styles.searchbar}>
-                        <Icon name='ios-search' size={20} style={styles.searchbaricon}/>
-                    <TextInput placeholder='Search' placeholderTextColor='grey' style={styles.searchbartext}/>
-                    </View>
-                </View>
-
-
-                <Card title='Lorem Ipsum' containerStyle={styles.cardStyle} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
-                    {
-                        users.map((u, i) => {
-                            return (
-                              <TouchableOpacity onPress={ () => this.props.navigation.navigate('Project') }>
-                                <Text style={{color:'#fff', width: 150}}>
-                                    {u.name}
-                                </Text>
-                              </TouchableOpacity>
-                            );
-                        })
-                    }
-                </Card>
-            </SafeAreaView>
-        );
-    }
 }
 
-export default LibraryScreen;
-
-var users = [
-    {
-        name: 'Of on affixed civilly moments promise explain fertile in. Assurance advantage belonging happiness departure so of. ',
-        avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
-    },
-]
+export default BrowseScreen;
 
 const styles = StyleSheet.create({
     container: {
