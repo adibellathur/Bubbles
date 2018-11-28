@@ -43,20 +43,11 @@ class LibraryScreen extends Component {
                     </View>
                 </View>
 
-
-                <Card title='Lorem Ipsum' containerStyle={styles.cardStyle} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
-                    {
-                        users.map((u, i) => {
-                            return (
-                              <TouchableOpacity onPress={ () => this.props.navigation.navigate('Project') }>
-                                <Text style={{color:'#fff', width: 150}}>
-                                    {u.name}
-                                </Text>
-                              </TouchableOpacity>
-                            );
-                        })
-                    }
-                </Card>
+                <TouchableOpacity onPress={ () => this.props.navigation.navigate('Project') }>
+                  <Card title='Project #1' containerStyle={styles.cardStyle} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Text style={{color:'#fff', width: "100%", fontSize: 18}}>This is a description of your project. It can be as long or as short as you want, as long as it gets the job done</Text>
+                  </Card>
+                </TouchableOpacity>
             </SafeAreaView>
         );
     }
@@ -161,9 +152,9 @@ const styles = StyleSheet.create({
     },
     cardStyle: {
         borderRadius: 20,
-        borderColor: '#1abc9c',
+        borderColor: '#4857ff',
         width: Dimensions.get('window').width * .9,
-        backgroundColor: '#1abc9c',
+        backgroundColor: '#4857ff',
         shadowColor: "#000000",
         shadowOpacity: 0.5,
         shadowRadius: 6,

@@ -4,6 +4,7 @@ import {
     Text,
     View,
     SafeAreaView,
+    ScrollView,
     StatusBar,
     TextInput,
     Platform,
@@ -17,17 +18,10 @@ import {Asset, FileSystem, Font, Permissions} from 'expo';
 import { Card, ListItem } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Color} from '../assets/colors';
-// import UserPage from '../components/UserPage';
 
 class BrowseScreen extends Component {
   render() {
     return (
-      // <SafeAreaView style={styles.container}>
-      //   <View style={styles.container}>
-      //     <Text>Public</Text>
-      //     <UserPage message = {'Generic userpage message!!'}/>
-      //   </View>
-      // </SafeAreaView>
       <SafeAreaView style={styles.container}>
           <View>
               <StatusBar backgroundColor="blue" barStyle="light-content"/>
@@ -41,9 +35,58 @@ class BrowseScreen extends Component {
               <TextInput placeholder='Search' placeholderTextColor='grey' style={styles.searchbartext}/>
               </View>
           </View>
-          <View>
-            <Text>THIS IS SPACE TO DO STUFF</Text>
-          </View>
+          <ScrollView style={{flex: 1}} scrollEventThrottle={16}>
+            <View style={{flex: 1, marginTop: 10, justifyContent: 'flex-start'}}>
+              <Text style={styles.subheader}>Popular Bubbles</Text>
+              <ScrollView horizontal={true} style={{marginLeft:30}}>
+                <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('JayZ') }>
+                  <Card title='4:44' containerStyle={[styles.cardStyle, {backgroundColor: '#ffb366', borderColor: '#ff9933'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/jayz.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  </Card>
+                </TouchableOpacity>
+                <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('BounceSynth') }>
+                  <Card title='Bounce Synth' containerStyle={[styles.cardStyle, {backgroundColor: '#41c2ff', borderColor: '#41c2ff'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  </Card>
+                </TouchableOpacity>
+                <TouchableOpacity style={{flex:1}}>
+                  <Card title='MLSA -Ideas' containerStyle={[styles.cardStyle, {backgroundColor: '#6de8a4', borderColor: '#6de8a4'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/melisa.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  </Card>
+                </TouchableOpacity>
+                <TouchableOpacity style={{flex:1}}>
+                  <Card title='Fast Acoustic' containerStyle={[styles.cardStyle, {backgroundColor: '#367ae8', borderColor: '#367ae8'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  </Card>
+                </TouchableOpacity>
+              </ScrollView>
+            </View>
+            <View style={{flex: 1, marginTop: 40, justifyContent: 'center'}}>
+              <Text style={styles.subheader}>Discover New Bubbles</Text>
+              <View style={{flex: 1, width: "100%", marginTop: 10, alignItems: 'center'}} >
+                <TouchableOpacity style={{flex:1}}>
+                  <Card title='Fast Acoustic' containerStyle={[styles.bigCardStyle, {backgroundColor: '#367ae8', borderColor: '#367ae8'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  </Card>
+                </TouchableOpacity>
+                <TouchableOpacity style={{flex:1}}>
+                  <Card title='Rain Sounds' containerStyle={[styles.bigCardStyle, {backgroundColor: '#4857ff', borderColor: '#4857ff'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/adithya.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  </Card>
+                </TouchableOpacity>
+                <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('BounceSynth') }>
+                  <Card title='Bounce Synth' containerStyle={[styles.bigCardStyle, {backgroundColor: '#41c2ff', borderColor: '#41c2ff'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  </Card>
+                </TouchableOpacity>
+                <TouchableOpacity style={{flex:1}}>
+                  <Card title='MLSA -Ideas' containerStyle={[styles.bigCardStyle, {backgroundColor: '#6de8a4', borderColor: '#6de8a4'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/melisa.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  </Card>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ScrollView>
       </SafeAreaView>
     );
   }
@@ -115,39 +158,17 @@ const styles = StyleSheet.create({
         height: 45,
         color: '#fff'
     },
-    fab: {
-        position: 'absolute',
-        margin: 24,
-        bottom: 0
-    },
-    gridView: {
-        paddingTop: 25,
-        flex: 1
-    },
-    itemContainer: {
-        justifyContent: 'flex-end',
-        borderRadius: 95,
-        padding: 10,
-        margin: 5,
-        height: 180,
-        width: 180,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    itemName: {
-        fontSize: 16,
+    subheader: {
         color: '#fff',
-        fontWeight: '600'
-    },
-    itemCode: {
-        fontWeight: '600',
-        fontSize: 12,
-        color: '#fff'
+        fontWeight: '500',
+        fontSize: 30,
+        marginHorizontal: 30
     },
     cardStyle: {
         borderRadius: 20,
         borderColor: '#1abc9c',
-        width: Dimensions.get('window').width * .9,
+        width: Dimensions.get('window').width * 0.4,
+        height:180,
         backgroundColor: '#1abc9c',
         shadowColor: "#000000",
         shadowOpacity: 0.5,
@@ -156,7 +177,21 @@ const styles = StyleSheet.create({
             height: 0,
             width: 0
         },
-        paddingBottom: 30
+        justifyContent:'flex-right',
+        marginHorizontal: 5
+    },
+    bigCardStyle: {
+        borderRadius: 20,
+        borderColor: '#1abc9c',
+        width: Dimensions.get('window').width * 0.9,
+        backgroundColor: '#1abc9c',
+        shadowColor: "#000000",
+        shadowOpacity: 0.5,
+        shadowRadius: 6,
+        shadowOffset: {
+            height: 0,
+            width: 0
+        },
     },
     cardDivider: {
         opacity: 0
@@ -165,5 +200,11 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign: 'left',
         color: '#fff'
+    },
+    cardArtist: {
+        fontSize: 20,
+        textAlign: 'left',
+        color: '#fff',
+        marginTop:0
     }
 });

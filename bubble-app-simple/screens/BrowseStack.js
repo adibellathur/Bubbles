@@ -19,6 +19,8 @@ import {Asset, FileSystem, Font, Permissions} from 'expo';
 
 import {Color} from '../assets/colors';
 import BrowseScreen from './Browse';
+import JayZScreen from './JayZ';
+import BounceSynthScreen from './BounceSynth'
 
 class BrowseStack extends Component {
     render() {
@@ -32,6 +34,12 @@ const StackNavigator =  createStackNavigator(
   {
     Browse: {
       screen: BrowseScreen
+    },
+    JayZ: {
+      screen: JayZScreen
+    },
+    BounceSynth: {
+      screen: BounceSynthScreen
     }
   },
   {

@@ -16,7 +16,7 @@ import {FAB} from 'react-native-paper';
 import GridView from 'react-native-super-grid';
 import {Color} from '../assets/colors'
 
-class ProjectScreen extends Component {
+class JayZScreen extends Component {
   constructor(props) {
     super(props);
     this.getData();
@@ -38,11 +38,11 @@ class ProjectScreen extends Component {
       isRecording: false,
       isPlaying: false,
       items: [
-        { id: 0, name: 'TURQUOISE', code: '#1abc9c', sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'EMERALD', code: '#2ecc71', sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
-        { id: 2, name: 'PETER RIVER', code: '#3498db', sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'AMETHYST', code: '#9b59b6', sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
-        { id: 4, name: 'WET ASPHALT', code: '#34495e', sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'GREEN SEA', code: '#16a085', sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
-        { id: 6, name: 'NEPHRITIS', code: '#27ae60', sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'BELIZE HOLE', code: '#2980b9', sound: null , src: require('../assets/444/08Moonlight.mp3') },
-        { id: 8, name: 'WISTERIA', code: '#8e44ad', sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'MIDNIGHT BLUE', code: '#2c3e50', sound: null , src: require('../assets/444/10Legacy.mp3') }
+        { id: 0, name: 'Kill JayZ', code: '#1abc9c', sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'The Story of OJ', code: '#2ecc71', sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
+        { id: 2, name: 'Smile', code: '#3498db', sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'Caught Their Eyes', code: '#9b59b6', sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
+        { id: 4, name: '4:44', code: '#34495e', sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'Family Feud', code: '#16a085', sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
+        { id: 6, name: 'Bam', code: '#27ae60', sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'Moonlight', code: '#2980b9', sound: null , src: require('../assets/444/08Moonlight.mp3') },
+        { id: 8, name: 'Marcy Me', code: '#8e44ad', sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'Legacy', code: '#2c3e50', sound: null , src: require('../assets/444/10Legacy.mp3') }
       ],
       sounds: []
     }
@@ -87,7 +87,7 @@ class ProjectScreen extends Component {
           <StatusBar backgroundColor="blue" barStyle="light-content"/>
         </View>
         <View style={styles.header}>
-          <Text style={styles.title}>Project #1</Text>
+          <Text style={styles.title}>4:44</Text>
         </View>
         <GridView
           itemDimension={130}
@@ -101,11 +101,6 @@ class ProjectScreen extends Component {
             </TouchableOpacity>
           )}
         />
-        <FAB style={[styles.fab, this.state.isRecording ? { backgroundColor: 'red' } : {backgroundColor: Color.primaryblue}]}
-        extended
-        icon="mic"
-        label= {this.state.isRecording ? 'Recording' : 'Record'}
-        onPress={this.handlerRecordingButtonOnClick.bind(this)}/>
       </SafeAreaView>
     );
   }
@@ -198,7 +193,7 @@ class ProjectScreen extends Component {
   }
 }
 
-export default ProjectScreen;
+export default JayZScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -278,3 +273,12 @@ const styles = StyleSheet.create({
       color: '#fff',
     }
 });
+
+// <View style={styles.searchbararea}>
+//   <View style={styles.searchbar}>
+//     <Icon name='ios-search' size={20} style={styles.searchbaricon} />
+//     <TextInput placeholder='find your thoughts...'
+//     placeholderTextColor='grey'
+//     style={styles.searchbartext}/>
+//   </View>
+// </View>
