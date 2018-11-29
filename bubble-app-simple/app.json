@@ -21,7 +21,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.bubble.bubbleapp"
+    },
+    "android": {
+      "package": "com.bubble.bubbleapp"
     }
   }
 }
