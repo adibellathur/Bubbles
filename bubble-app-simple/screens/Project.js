@@ -38,11 +38,11 @@ class ProjectScreen extends Component {
       isRecording: false,
       isPlaying: false,
       items: [
-        { id: 0, name: 'TURQUOISE', code: Color.greenpalette[0], sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'EMERALD', code: Color.greenpalette[1], sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
-        { id: 2, name: 'PETER RIVER', code: Color.greenpalette[2], sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'AMETHYST', code: Color.greenpalette[3], sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
-        { id: 4, name: 'WET ASPHALT', code: Color.greenpalette[4], sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'GREEN SEA', code: Color.greenpalette[5], sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
-        { id: 6, name: 'NEPHRITIS', code: Color.greenpalette[6], sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'BELIZE HOLE', code: Color.greenpalette[7], sound: null , src: require('../assets/444/08Moonlight.mp3') },
-        { id: 8, name: 'WISTERIA', code: Color.greenpalette[0], sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'MIDNIGHT BLUE', code: Color.greenpalette[1], sound: null , src: require('../assets/444/10Legacy.mp3') }
+        { id: 0, name: 'TURQUOISE', code: Color.redpalette[0], sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'EMERALD', code: Color.redpalette[1], sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
+        { id: 2, name: 'PETER RIVER', code: Color.redpalette[2], sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'AMETHYST', code: Color.redpalette[3], sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
+        { id: 4, name: 'WET ASPHALT', code: Color.redpalette[4], sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'GREEN SEA', code: Color.redpalette[5], sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
+        { id: 6, name: 'NEPHRITIS', code: Color.redpalette[6], sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'BELIZE HOLE', code: Color.redpalette[7], sound: null , src: require('../assets/444/08Moonlight.mp3') },
+        { id: 8, name: 'WISTERIA', code: Color.redpalette[0], sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'MIDNIGHT BLUE', code: Color.redpalette[1], sound: null , src: require('../assets/444/10Legacy.mp3') }
       ],
       sounds: []
     }
@@ -136,6 +136,16 @@ class ProjectScreen extends Component {
       this.setState({
         isRecording: true
       });
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: true,
+        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+        playsInSilentModeIOS: true,
+        playsInSilentLockedModeIOS: true,
+        shouldDuckAndroid: true,
+        interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+        playThroughEarpieceAndroid: false
+      });
+
       try {
         const status = await this.recording.getStatusAsync();
         if (this.recording !== null) {
@@ -187,7 +197,7 @@ class ProjectScreen extends Component {
       copyItems.push({
         id: this.state.sounds.length,
         name: 'Recording #' + this.state.sounds.length,
-        code: Color.greenpalette[this.state.sounds.length % Color.greenpalette.length],
+        code: Color.redpalette[this.state.sounds.length % Color.redpalette.length],
         src: null
       });
 
@@ -272,12 +282,12 @@ const styles = StyleSheet.create({
     },
     itemName: {
       fontSize: 16,
-      color: Color.backgroundlight,
+      color: Color.light,
       fontWeight: '600',
     },
     itemCode: {
       fontWeight: '600',
       fontSize: 12,
-      color: Color.backgroundlight,
+      color: Color.light,
     }
 });

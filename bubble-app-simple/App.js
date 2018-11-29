@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SafeAreaView from 'react-native-safe-area-view';
 
 import BrowseStack from './screens/BrowseStack';
+import BrowseScreen from './screens/Browse';
 import LibraryStack from './screens/LibraryStack';
 import ProjectScreen from './screens/Project';
 import JamSession from './screens/JamSession';
