@@ -40,7 +40,7 @@ class BrowseScreen extends Component {
               <Text style={styles.subheader}>Popular Bubbles</Text>
               <ScrollView horizontal={true} style={{marginLeft:30}}>
                 <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('JayZ') }>
-                  <Card title='4:44' containerStyle={[styles.cardStyle, {backgroundColor: '#ffb366', borderColor: '#ff9933'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                  <Card title='4:44' containerStyle={[styles.cardStyle, {backgroundColor: Color.redpalette[0], borderColor: Color.redpalette[0]}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
                     <Image source={require("../assets/img/jayz.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
                   </Card>
                 </TouchableOpacity>
@@ -54,7 +54,7 @@ class BrowseScreen extends Component {
                     <Image source={require("../assets/img/melisa.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
                   </Card>
                 </TouchableOpacity>
-                <TouchableOpacity style={{flex:1}}>
+                <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('FastAcoustic')}>
                   <Card title='Fast Acoustic' containerStyle={[styles.cardStyle, {backgroundColor: '#367ae8', borderColor: '#367ae8'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
                     <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
                   </Card>
@@ -64,7 +64,7 @@ class BrowseScreen extends Component {
             <View style={{flex: 1, marginTop: 40, justifyContent: 'center'}}>
               <Text style={styles.subheader}>Discover New Bubbles</Text>
               <View style={{flex: 1, width: "100%", marginTop: 10, alignItems: 'center'}} >
-                <TouchableOpacity style={{flex:1}}>
+                <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('FastAcoustic')}>
                   <Card title='Fast Acoustic' containerStyle={[styles.bigCardStyle, {backgroundColor: '#367ae8', borderColor: '#367ae8'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
                     <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
                   </Card>
@@ -146,8 +146,8 @@ const styles = StyleSheet.create({
         elevation: 1,
         marginBottom: 30,
         marginTop: Platform.OS == 'ios'
-            ? 30
-            : null
+            ? 20
+            : 30
     },
     searchbartext: {
         flex: 1,

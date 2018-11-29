@@ -38,11 +38,11 @@ class ProjectScreen extends Component {
       isRecording: false,
       isPlaying: false,
       items: [
-        { id: 0, name: 'TURQUOISE', code: '#1abc9c', sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'EMERALD', code: '#2ecc71', sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
-        { id: 2, name: 'PETER RIVER', code: '#3498db', sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'AMETHYST', code: '#9b59b6', sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
-        { id: 4, name: 'WET ASPHALT', code: '#34495e', sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'GREEN SEA', code: '#16a085', sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
-        { id: 6, name: 'NEPHRITIS', code: '#27ae60', sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'BELIZE HOLE', code: '#2980b9', sound: null , src: require('../assets/444/08Moonlight.mp3') },
-        { id: 8, name: 'WISTERIA', code: '#8e44ad', sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'MIDNIGHT BLUE', code: '#2c3e50', sound: null , src: require('../assets/444/10Legacy.mp3') }
+        { id: 0, name: 'TURQUOISE', code: Color.greenpalette[0], sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'EMERALD', code: Color.greenpalette[1], sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
+        { id: 2, name: 'PETER RIVER', code: Color.greenpalette[2], sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'AMETHYST', code: Color.greenpalette[3], sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
+        { id: 4, name: 'WET ASPHALT', code: Color.greenpalette[4], sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'GREEN SEA', code: Color.greenpalette[5], sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
+        { id: 6, name: 'NEPHRITIS', code: Color.greenpalette[6], sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'BELIZE HOLE', code: Color.greenpalette[7], sound: null , src: require('../assets/444/08Moonlight.mp3') },
+        { id: 8, name: 'WISTERIA', code: Color.greenpalette[0], sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'MIDNIGHT BLUE', code: Color.greenpalette[1], sound: null , src: require('../assets/444/10Legacy.mp3') }
       ],
       sounds: []
     }
@@ -63,7 +63,7 @@ class ProjectScreen extends Component {
     this.soundObject = new Audio.Sound();
     this.soundObject.loadAsync(
       require('../assets/444/01KillJayZ.mp3'),
-      initialStatus={androidImplementation: 'MediaPlayer'},
+      initialStatus={androidImplementation: 'MediaPlayer', isLooping: true},
       downloadFirst = true
     );
 
@@ -101,7 +101,7 @@ class ProjectScreen extends Component {
             </TouchableOpacity>
           )}
         />
-        <FAB style={[styles.fab, this.state.isRecording ? { backgroundColor: 'red' } : {backgroundColor: Color.primaryblue}]}
+        <FAB style={[styles.fab, this.state.isRecording ? { backgroundColor: Color.redpalette[2] } : {backgroundColor: Color.primaryblue}]}
         extended
         icon="mic"
         label= {this.state.isRecording ? 'Recording' : 'Record'}
@@ -185,14 +185,17 @@ class ProjectScreen extends Component {
 
       const copyItems = Object.assign([], this.state.items);
       copyItems.push({
-        id: this.state.sounds.length, name: 'NEW_RECORDING', code: Color.light, src: null
+        id: this.state.sounds.length,
+        name: 'Recording #' + this.state.sounds.length,
+        code: Color.greenpalette[this.state.sounds.length % Color.greenpalette.length],
+        src: null
       });
 
       this.setState({
         sounds: copySounds,
         items: copyItems
       });
-
+      console.log(this.state.sounds.length);
       this.playing.push(false);
     }
   }
@@ -269,12 +272,12 @@ const styles = StyleSheet.create({
     },
     itemName: {
       fontSize: 16,
-      color: '#fff',
+      color: Color.backgroundlight,
       fontWeight: '600',
     },
     itemCode: {
       fontWeight: '600',
       fontSize: 12,
-      color: '#fff',
+      color: Color.backgroundlight,
     }
 });

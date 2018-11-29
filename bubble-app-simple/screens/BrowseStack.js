@@ -21,6 +21,7 @@ import {Color} from '../assets/colors';
 import BrowseScreen from './Browse';
 import JayZScreen from './JayZ';
 import BounceSynthScreen from './BounceSynth'
+import FastAcousticScreen from './FastAcoustic'
 
 class BrowseStack extends Component {
     render() {
@@ -40,6 +41,9 @@ const StackNavigator =  createStackNavigator(
     },
     BounceSynth: {
       screen: BounceSynthScreen
+    },
+    FastAcoustic: {
+      screen: FastAcousticScreen
     }
   },
   {

@@ -19,6 +19,7 @@ import {Asset, FileSystem, Font, Permissions} from 'expo';
 
 import {Color} from '../assets/colors';
 import ProjectScreen from './Project';
+import EmptyProjectScreen from './EmptyProject'
 import LibraryScreen from './LibraryNew';
 
 class LibraryStack extends Component {
@@ -36,6 +37,9 @@ const StackNavigator =  createStackNavigator(
     },
     Project: {
       screen: ProjectScreen
+    },
+    EmptyProject: {
+      screen: EmptyProjectScreen
     }
   },
   {

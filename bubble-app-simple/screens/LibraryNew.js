@@ -45,7 +45,12 @@ class LibraryScreen extends Component {
 
                 <TouchableOpacity onPress={ () => this.props.navigation.navigate('Project') }>
                   <Card title='Project #1' containerStyle={styles.cardStyle} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
-                    <Text style={{color:'#fff', width: "100%", fontSize: 18}}>This is a description of your project. It can be as long or as short as you want, as long as it gets the job done</Text>
+                    <Text style={{color: Color.backgroundlight, width: "100%", fontSize: 18}}>This is a description of your project. It can be as long or as short as you want, as long as it gets the job done</Text>
+                  </Card>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={ () => this.props.navigation.navigate('EmptyProject') }>
+                  <Card title='Project #2' containerStyle={[styles.cardStyle,{backgroundColor: Color.indigopalette[1], borderColor: Color.indigopalette[1]}]} titleStyle={styles.cardTitleLight} dividerStyle={styles.cardDivider}>
+                    <Text style={{color: Color.light, width: "100%", fontSize: 18}}>This is an empty project. Let your ideas flow!</Text>
                   </Card>
                 </TouchableOpacity>
             </SafeAreaView>
@@ -77,7 +82,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: Platform.OS == 'ios'
             ? 20
-            : null
+            : 30
     },
     title: {
         color: '#fff',
@@ -152,9 +157,9 @@ const styles = StyleSheet.create({
     },
     cardStyle: {
         borderRadius: 20,
-        borderColor: '#4857ff',
+        borderColor: Color.greenpalette[2],
         width: Dimensions.get('window').width * .9,
-        backgroundColor: '#4857ff',
+        backgroundColor: Color.greenpalette[2],
         shadowColor: "#000000",
         shadowOpacity: 0.5,
         shadowRadius: 6,
@@ -170,6 +175,11 @@ const styles = StyleSheet.create({
     cardTitle: {
         fontSize: 30,
         textAlign: 'left',
-        color: '#fff'
+        color: Color.backgroundlight
+    },
+    cardTitleLight: {
+        fontSize: 30,
+        textAlign: 'left',
+        color: Color.light
     }
 });

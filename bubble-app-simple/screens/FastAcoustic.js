@@ -16,7 +16,7 @@ import {FAB} from 'react-native-paper';
 import GridView from 'react-native-super-grid';
 import {Color} from '../assets/colors'
 
-class JayZScreen extends Component {
+class FastAcousticScreen extends Component {
   constructor(props) {
     super(props);
     this.getData();
@@ -38,11 +38,9 @@ class JayZScreen extends Component {
       isRecording: false,
       isPlaying: false,
       items: [
-        { id: 0, name: 'Kill JayZ', code: Color.redpalette[0], sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'The Story of OJ', code: Color.redpalette[1], sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
-        { id: 2, name: 'Smile', code: Color.redpalette[2], sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'Caught Their Eyes', code: Color.redpalette[3], sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
-        { id: 4, name: '4:44', code: Color.redpalette[4], sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'Family Feud', code: Color.redpalette[5], sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
-        { id: 6, name: 'Bam', code: Color.redpalette[6], sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'Moonlight', code: Color.redpalette[7], sound: null , src: require('../assets/444/08Moonlight.mp3') },
-        { id: 8, name: 'Marcy Me', code: Color.redpalette[0], sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'Legacy', code: Color.redpalette[1], sound: null , src: require('../assets/444/10Legacy.mp3') }
+        { id: 0, name: 'Plucks', code: Color.indigopalette[0], sound: null , src: require('../assets/FastAcoustic/1_Acoustic_Plucking.mp3') }, { id: 1,name: 'Claps', code: Color.indigopalette[1], sound: null , src: require('../assets/FastAcoustic/2_Claps.mp3')  },
+        { id: 2, name: 'Shaker', code: Color.indigopalette[2], sound: null , src: require('../assets/FastAcoustic/3_Shaker1.mp3') }, { id: 3, name: 'OtherShaker', code: Color.indigopalette[3], sound: null , src: require('../assets/FastAcoustic/4_Shaker2.mp3') },
+        { id: 4, name: 'More Plucking', code: Color.indigopalette[4], sound: null , src: require('../assets/FastAcoustic/5_Fast_Plucking.mp3') }
       ],
       sounds: []
     }
@@ -53,7 +51,7 @@ class JayZScreen extends Component {
       item = this.state.items[i];
       new_sound.loadAsync(
         item.src,
-        initialStatus={androidImplementation: 'MediaPlayer'},
+        initialStatus={androidImplementation: 'MediaPlayer', isLooping: true},
         downloadFirst = true
       );
       this.state.sounds.push(new_sound);
@@ -87,7 +85,7 @@ class JayZScreen extends Component {
           <StatusBar backgroundColor="blue" barStyle="light-content"/>
         </View>
         <View style={styles.header}>
-          <Text style={styles.title}>4:44</Text>
+          <Text style={styles.title}>Fast Acoustic</Text>
         </View>
         <GridView
           itemDimension={130}
@@ -180,7 +178,10 @@ class JayZScreen extends Component {
 
       const copyItems = Object.assign([], this.state.items);
       copyItems.push({
-        id: this.state.sounds.length, name: 'NEW_RECORDING', code: Color.light, src: null
+        id: this.state.sounds.length,
+        name: 'Recording #' + this.state.sounds.length,
+        code: Color.indigopalette[this.state.sounds.length % Color.indigopalette.length],
+        src: null
       });
 
       this.setState({
@@ -193,7 +194,7 @@ class JayZScreen extends Component {
   }
 }
 
-export default JayZScreen;
+export default FastAcousticScreen;
 
 const styles = StyleSheet.create({
     container: {
@@ -264,21 +265,12 @@ const styles = StyleSheet.create({
     },
     itemName: {
       fontSize: 16,
-      color: '#fff',
+      color: Color.light,
       fontWeight: '600',
     },
     itemCode: {
       fontWeight: '600',
       fontSize: 12,
-      color: '#fff',
+      color: Color.light,
     }
 });
-
-// <View style={styles.searchbararea}>
-//   <View style={styles.searchbar}>
-//     <Icon name='ios-search' size={20} style={styles.searchbaricon} />
-//     <TextInput placeholder='find your thoughts...'
-//     placeholderTextColor='grey'
-//     style={styles.searchbartext}/>
-//   </View>
-// </View>

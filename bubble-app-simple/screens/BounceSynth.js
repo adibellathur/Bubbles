@@ -38,11 +38,11 @@ class BounceSynthScreen extends Component {
       isRecording: false,
       isPlaying: false,
       items: [
-        { id: 0, name: 'Kill JayZ', code: '#1abc9c', sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'The Story of OJ', code: '#2ecc71', sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
-        { id: 2, name: 'Smile', code: '#3498db', sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'Caught Their Eyes', code: '#9b59b6', sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
-        { id: 4, name: '4:44', code: '#34495e', sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'Family Feud', code: '#16a085', sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
-        { id: 6, name: 'Bam', code: '#27ae60', sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'Moonlight', code: '#2980b9', sound: null , src: require('../assets/444/08Moonlight.mp3') },
-        { id: 8, name: 'Marcy Me', code: '#8e44ad', sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'Legacy', code: '#2c3e50', sound: null , src: require('../assets/444/10Legacy.mp3') }
+        { id: 0, name: 'Synth-ey Sound', code: '#1abc9c', sound: null , src: require('../assets/BounceSynth/1_MiniMonoSynth.mp3') }, { id: 1,name: 'Dance Pattern', code: '#2ecc71', sound: null , src: require('../assets/BounceSynth/2_DanceFloorPattern.mp3')  },
+        { id: 2, name: '80\'s Bass', code: '#3498db', sound: null , src: require('../assets/BounceSynth/3_80sDanceBassSynth.mp3') }, { id: 3, name: 'Latin Drums', code: '#9b59b6', sound: null , src: require('../assets/BounceSynth/4_FunkyLatinDrums.mp3') },
+        { id: 4, name: 'Congo Groove', code: '#34495e', sound: null , src: require('../assets/BounceSynth/5_CongaGroove.mp3') }, // { id: 5, name: 'Family Feud', code: '#16a085', sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
+        // { id: 6, name: 'Bam', code: '#27ae60', sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'Moonlight', code: '#2980b9', sound: null , src: require('../assets/444/08Moonlight.mp3') },
+        // { id: 8, name: 'Marcy Me', code: '#8e44ad', sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'Legacy', code: '#2c3e50', sound: null , src: require('../assets/444/10Legacy.mp3') }
       ],
       sounds: []
     }
@@ -53,7 +53,7 @@ class BounceSynthScreen extends Component {
       item = this.state.items[i];
       new_sound.loadAsync(
         item.src,
-        initialStatus={androidImplementation: 'MediaPlayer'},
+        initialStatus={androidImplementation: 'MediaPlayer', isLooping: true},
         downloadFirst = true
       );
       this.state.sounds.push(new_sound);
