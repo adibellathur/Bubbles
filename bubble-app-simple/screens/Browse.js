@@ -36,7 +36,7 @@ class BrowseScreen extends Component {
               </View>
           </View>
           <ScrollView style={{flex: 1}} scrollEventThrottle={16}>
-            <View style={{flex: 1, marginTop: 10, justifyContent: 'flex-start'}}>
+            <View style={{flex: 1, marginTop: 10}}>
               <Text style={styles.subheader}>Popular Bubbles</Text>
               <ScrollView horizontal={true} style={{marginLeft:30}}>
                 <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('JayZ') }>
@@ -61,7 +61,7 @@ class BrowseScreen extends Component {
                 </TouchableOpacity>
               </ScrollView>
             </View>
-            <View style={{flex: 1, marginTop: 40, justifyContent: 'center'}}>
+            <View style={{flex: 1, marginTop: 40}}>
               <Text style={styles.subheader}>Discover New Bubbles</Text>
               <View style={{flex: 1, width: "100%", marginTop: 10, alignItems: 'center'}} >
                 <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('FastAcoustic')}>
@@ -177,7 +177,6 @@ const styles = StyleSheet.create({
             height: 0,
             width: 0
         },
-        justifyContent:'flex-right',
         marginHorizontal: 5
     },
     bigCardStyle: {
@@ -191,7 +190,7 @@ const styles = StyleSheet.create({
         shadowOffset: {
             height: 0,
             width: 0
-        },
+        }
     },
     cardDivider: {
         opacity: 0
