@@ -22,6 +22,7 @@ import BrowseScreen from './Browse';
 import JayZScreen from './JayZ';
 import BounceSynthScreen from './BounceSynth'
 import FastAcousticScreen from './FastAcoustic'
+import CharliePuthScreen from './CharliePuth'
 
 class BrowseStack extends Component {
     render() {
@@ -44,7 +45,12 @@ const StackNavigator =  createStackNavigator(
     },
     FastAcoustic: {
       screen: FastAcousticScreen
+    },
+    CharliePuth: {
+        screen: CharliePuthScreen
     }
+    
+
   },
   {
     headerMode: 'screen',

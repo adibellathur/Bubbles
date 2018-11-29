@@ -39,6 +39,12 @@ class BrowseScreen extends Component {
             <View style={{flex: 1, marginTop: 10, justifyContent: 'flex-start'}}>
               <Text style={styles.subheader}>Popular Bubbles</Text>
           <ScrollView horizontal={true} style={{marginLeft: Dimensions.get('window').width * .05}}>
+              <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('CharliePuth') }>
+                <Card title='Puth idea &nbsp;&emsp;&nbsp;&emsp;&nbsp;'
+                    containerStyle={[styles.cardStyle, {backgroundColor: Color.indigopalette[0], borderColor: Color.indigopalette[0]}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                    <Image source={require("../assets/img/charlie.jpg")} style={{width:36, height:36, position: 'absolute', bottom: 5, left: 5, borderRadius: 18, resizeMode: 'cover'}}/>
+                </Card>
+              </TouchableOpacity>
                 <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('JayZ') }>
                   <Card title='4:44 &nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;'
                       containerStyle={[styles.cardStyle, {backgroundColor: Color.redpalette[0], borderColor: Color.redpalette[0]}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
