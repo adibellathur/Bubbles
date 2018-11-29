@@ -38,11 +38,10 @@ class CharliePuthScreen extends Component {
       isRecording: false,
       isPlaying: false,
       items: [
-        { id: 0, name: 'Kill JayZ', code: Color.indigopalette[0], sound: null , src: require('../assets/444/01KillJayZ.mp3') }, { id: 1,name: 'The Story of OJ', code: Color.indigopalette[1], sound: null , src: require('../assets/444/02TheStoryofOJ.mp3')  },
-        { id: 2, name: 'Smile', code: Color.indigopalette[2], sound: null , src: require('../assets/444/03Smile.mp3') }, { id: 3, name: 'Caught Their Eyes', code: Color.indigopalette[3], sound: null , src: require('../assets/444/04CaughtTheirEyes.mp3') },
-        { id: 4, name: '4:44', code: Color.indigopalette[4], sound: null , src: require('../assets/444/05-4_44.mp3') }, { id: 5, name: 'Family Feud', code: Color.indigopalette[5], sound: null , src: require('../assets/444/06FamilyFeud.mp3') },
-        { id: 6, name: 'Bam', code: Color.indigopalette[6], sound: null , src: require('../assets/444/07Bam.mp3') }, { id: 7, name: 'Moonlight', code: Color.indigopalette[7], sound: null , src: require('../assets/444/08Moonlight.mp3') },
-        { id: 8, name: 'Marcy Me', code: Color.indigopalette[0], sound: null , src: require('../assets/444/09MarcyMe.mp3') }, { id: 9, name: 'Legacy', code: Color.indigopalette[1], sound: null , src: require('../assets/444/10Legacy.mp3') }
+        { id: 0, name: 'Intro Guitar', code: Color.indigopalette[0], sound: null , src: require('../assets/Attention/1_Intro_Guitar.mp3') }, { id: 1,name: 'Runnin Round', code: Color.indigopalette[1], sound: null , src: require('../assets/Attention/2_Runnin_Round.mp3')  },
+        { id: 2, name: 'You Knew', code: Color.indigopalette[2], sound: null , src: require('../assets/Attention/3_You_Knew.mp3') }, { id: 3, name: 'Whoa', code: Color.indigopalette[3], sound: null , src: require('../assets/Attention/4_Whoa.mp3') },
+        { id: 4, name: 'Short Pick', code: Color.indigopalette[4], sound: null , src: require('../assets/Attention/5_Short_Pick.mp3') }, { id: 5, name: 'You Got Me', code: Color.indigopalette[5], sound: null , src: require('../assets/Attention/6_You_Got_Me.mp3') },
+        { id: 6, name: 'Chorus', code: Color.indigopalette[6], sound: null , src: require('../assets/Attention/7_Chorus.mp3') }, { id: 7, name: 'Sparkle', code: Color.indigopalette[7], sound: null , src: require('../assets/Attention/8_Sparkle.mp3') }
       ],
       sounds: []
     }
