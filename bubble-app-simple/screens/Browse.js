@@ -38,10 +38,11 @@ class BrowseScreen extends Component {
           <ScrollView style={{flex: 1}} scrollEventThrottle={16}>
             <View style={{flex: 1, marginTop: 10}}>
               <Text style={styles.subheader}>Popular Bubbles</Text>
-              <ScrollView horizontal={true} style={{marginLeft:30}}>
+          <ScrollView horizontal={true} style={{marginLeft: Dimensions.get('window').width * .05}}>
                 <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('JayZ') }>
-                  <Card title='4:44' containerStyle={[styles.cardStyle, {backgroundColor: Color.redpalette[0], borderColor: Color.redpalette[0]}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
-                    <Image source={require("../assets/img/jayz.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                  <Card title='4:44 &nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;'
+                      containerStyle={[styles.cardStyle, {backgroundColor: Color.redpalette[0], borderColor: Color.redpalette[0]}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                      <Image source={require("../assets/img/jayz.jpg")} style={{width:36, height:36, position: 'absolute', bottom: 5, left: 5, borderRadius: 18, resizeMode: 'cover'}}/>
                   </Card>
                 </TouchableOpacity>
                 <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('BounceSynth') }>
@@ -55,36 +56,39 @@ class BrowseScreen extends Component {
                   </Card>
                 </TouchableOpacity>
                 <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('FastAcoustic')}>
-                  <Card title='Fast Acoustic' containerStyle={[styles.cardStyle, {backgroundColor: '#367ae8', borderColor: '#367ae8'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                  <Card title='Fast-Acoustic' containerStyle={[styles.cardStyle, {backgroundColor: '#367ae8', borderColor: '#367ae8'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
                     <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
                   </Card>
                 </TouchableOpacity>
               </ScrollView>
             </View>
-            <View style={{flex: 1, marginTop: 40}}>
-              <Text style={styles.subheader}>Discover New Bubbles</Text>
-              <View style={{flex: 1, width: "100%", marginTop: 10, alignItems: 'center'}} >
-                <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('FastAcoustic')}>
-                  <Card title='Fast Acoustic' containerStyle={[styles.bigCardStyle, {backgroundColor: '#367ae8', borderColor: '#367ae8'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
-                    <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
-                  </Card>
-                </TouchableOpacity>
-                <TouchableOpacity style={{flex:1}}>
-                  <Card title='Rain Sounds' containerStyle={[styles.bigCardStyle, {backgroundColor: '#4857ff', borderColor: '#4857ff'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
-                    <Image source={require("../assets/img/adithya.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
-                  </Card>
-                </TouchableOpacity>
-                <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('BounceSynth') }>
-                  <Card title='Bounce Synth' containerStyle={[styles.bigCardStyle, {backgroundColor: '#41c2ff', borderColor: '#41c2ff'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
-                    <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
-                  </Card>
-                </TouchableOpacity>
-                <TouchableOpacity style={{flex:1}}>
-                  <Card title='MLSA -Ideas' containerStyle={[styles.bigCardStyle, {backgroundColor: '#6de8a4', borderColor: '#6de8a4'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
-                    <Image source={require("../assets/img/melisa.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
-                  </Card>
-                </TouchableOpacity>
-              </View>
+            <View style={{width: Dimensions.get('window').width, alignItems: 'left', textAlign: 'left', left: .05, marginTop: 40}}>
+                <Text style={[styles.subheader, {textAlign: 'left'}]}>Discover New Bubbles</Text>
+            </View>
+
+            <View style={{flex: 1, marginTop: 10, alignItems: 'center', justifyContent: 'center'}}>
+                  <View style={{flex: 1, width: 1, marginTop: 10, alignItems: 'center'}} >
+                            <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('FastAcoustic')}>
+                                <Card title='Fast Acoustic' containerStyle={[styles.bigCardStyle, {backgroundColor: '#367ae8', borderColor: '#367ae8'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                                    <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                                </Card>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{flex:1}}>
+                                <Card title='Rain Sounds' containerStyle={[styles.bigCardStyle, {backgroundColor: '#4857ff', borderColor: '#4857ff'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                                    <Image source={require("../assets/img/adithya.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                                </Card>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('BounceSynth') }>
+                                <Card title='Bounce Synth' containerStyle={[styles.bigCardStyle, {backgroundColor: '#41c2ff', borderColor: '#41c2ff'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                                    <Image source={require("../assets/img/andrew.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                                </Card>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{flex:1}}>
+                                <Card title='MLSA -Ideas' containerStyle={[styles.bigCardStyle, {backgroundColor: '#6de8a4', borderColor: '#6de8a4'}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
+                                    <Image source={require("../assets/img/melisa.jpg")} style={{width:36, height:36, borderRadius: 18, resizeMode: 'cover'}}/>
+                                </Card>
+                            </TouchableOpacity>
+                    </View>
             </View>
           </ScrollView>
       </SafeAreaView>
@@ -162,7 +166,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: '500',
         fontSize: 30,
-        marginHorizontal: 30
+        marginHorizontal: Dimensions.get('window').width * .05
     },
     cardStyle: {
         borderRadius: 20,
