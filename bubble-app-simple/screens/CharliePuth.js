@@ -87,7 +87,7 @@ class CharliePuthScreen extends Component {
           <StatusBar backgroundColor="blue" barStyle="light-content"/>
         </View>
         <View style={styles.header}>
-          <Text style={styles.title}>Puth Idea</Text>
+          <Text style={styles.title}>Attention</Text>
         </View>
         <GridView
           itemDimension={130}
@@ -122,73 +122,6 @@ class CharliePuthScreen extends Component {
       } catch(error) {
         console.log(error);
       }
-    }
-  }
-
-  async handlerRecordingButtonOnClick() {
-    if(this.state.isRecording == false) {
-      console.log("STARTING RECORDING");
-      this.setState({
-        isRecording: true
-      });
-      try {
-        const status = await this.recording.getStatusAsync();
-        if (this.recording !== null) {
-          this.recording.setOnRecordingStatusUpdate(null);
-          this.recording = null;
-          this.recording = new Expo.Audio.Recording();
-        }
-        await this.recording.prepareToRecordAsync(Expo.Audio.RECORDING_OPTIONS_PRESET_HIGH_QUALITY);
-        await this.recording.startAsync();
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      console.log("STOPPING RECORDING AND SAVING");
-      this.setState({
-        isRecording: false
-      });
-      try {
-        await this.recording.stopAndUnloadAsync();
-      } catch (error) {
-        console.log(error);
-      }
-      const info = await FileSystem.getInfoAsync(this.recording.getURI());
-      console.log(`FILE INFO: ${JSON.stringify(info)}`);
-      await Audio.setAudioModeAsync({
-        allowsRecordingIOS: false,
-        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
-        playsInSilentModeIOS: true,
-        playsInSilentLockedModeIOS: true,
-        shouldDuckAndroid: true,
-        interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-        playThroughEarpieceAndroid: false
-      });
-      const { sound, status } = await this.recording.createNewLoadedSoundAsync(
-        {
-          isLooping: true,
-          isMuted: this.state.muted,
-          volume: this.state.volume,
-          rate: this.state.rate,
-          shouldCorrectPitch: this.state.shouldCorrectPitch,
-        },
-        null
-      );
-
-      const copySounds = Object.assign([],this.state.sounds);
-      copySounds.push(await sound);
-
-      const copyItems = Object.assign([], this.state.items);
-      copyItems.push({
-        id: this.state.sounds.length, name: 'NEW_RECORDING', code: Color.light, src: null
-      });
-
-      this.setState({
-        sounds: copySounds,
-        items: copyItems
-      });
-
-      this.playing.push(false);
     }
   }
 }

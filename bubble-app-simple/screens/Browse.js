@@ -40,7 +40,7 @@ class BrowseScreen extends Component {
               <Text style={styles.subheader}>Popular Bubbles</Text>
           <ScrollView horizontal={true} style={{marginLeft: Dimensions.get('window').width * .05}}>
               <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('CharliePuth') }>
-                <Card title='Puth idea &nbsp;&emsp;&nbsp;&emsp;&nbsp;'
+                <Card title='Attention &nbsp;&emsp;&nbsp;&emsp;&nbsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;'
                     containerStyle={[styles.cardStyle, {backgroundColor: Color.indigopalette[0], borderColor: Color.indigopalette[0]}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
                     <Image source={require("../assets/img/charlie.jpg")} style={{width:36, height:36, position: 'absolute', bottom: 5, left: 5, borderRadius: 18, resizeMode: 'cover'}}/>
                 </Card>
@@ -68,10 +68,9 @@ class BrowseScreen extends Component {
                 </TouchableOpacity>
               </ScrollView>
             </View>
-            <View style={{flex:1}}>
+            <View style={{flex:1, marginTop: 30}}>
                 <Text style={[styles.subheader, {textAlign: 'left'}]}>Discover New Bubbles</Text>
             </View>
-
             <View style={{flex: 1, marginTop: 10, alignItems: 'center', justifyContent: 'center'}}>
                   <View style={{flex: 1, width: 1, marginTop: 10, alignItems: 'center'}} >
                             <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('FastAcoustic')}>
