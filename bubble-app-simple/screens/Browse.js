@@ -38,7 +38,7 @@ class BrowseScreen extends Component {
           <ScrollView style={{flex: 1}} scrollEventThrottle={16}>
             <View style={{flex: 1, marginTop: 10}}>
               <Text style={styles.subheader}>Popular Bubbles</Text>
-          <ScrollView horizontal={true} style={{marginLeft: Dimensions.get('window').width * .05}}>
+              <ScrollView horizontal={true} style={{marginLeft: Dimensions.get('window').width * .05}}>
                 <TouchableOpacity style={{flex:1}} onPress={ () => this.props.navigation.navigate('JayZ') }>
                   <Card title='4:44 &nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;'
                       containerStyle={[styles.cardStyle, {backgroundColor: Color.redpalette[0], borderColor: Color.redpalette[0]}]} titleStyle={styles.cardTitle} dividerStyle={styles.cardDivider}>
@@ -62,7 +62,7 @@ class BrowseScreen extends Component {
                 </TouchableOpacity>
               </ScrollView>
             </View>
-            <View style={{width: Dimensions.get('window').width, alignItems: 'left', textAlign: 'left', left: .05, marginTop: 40}}>
+            <View style={{flex:1}}>
                 <Text style={[styles.subheader, {textAlign: 'left'}]}>Discover New Bubbles</Text>
             </View>
 
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: Platform.OS == 'ios'
             ? 20
-            : null
+            : 30
     },
     title: {
         color: '#fff',
