@@ -10,12 +10,14 @@ import LibraryStack from './screens/LibraryStack';
 import ProjectScreen from './screens/Project';
 import JamSession from './screens/JamSession';
 import {Color} from './assets/colors';
+import Expo from 'expo';
 
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.initData();
+    Expo.Asset;
   }
 
   async initData() {
