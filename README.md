@@ -1,4 +1,4 @@
 # Bubble
 
-### Bubble is a music ideation tool, created to help musicians take their studio with them. 
+### Bubble is a musician's studio on the go. 
 
