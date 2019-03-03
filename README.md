@@ -2,8 +2,5 @@
 
 ### Bubble is a musician's studio on the go. 
 
-<object data="http://yoursite.com/the.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="http://yoursite.com/the.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+### Pitch Deck
+![img1](./img1.png)
