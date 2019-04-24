@@ -17,7 +17,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.initData();
-    Expo.Asset;
+    Expo.Assets;
   }
 
   async initData() {

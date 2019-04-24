@@ -21,13 +21,13 @@ class FastAcousticScreen extends Component {
     super(props);
     this.getData();
     Audio.setAudioModeAsync({
-      allowsRecordingIOS: true,
+      allowsRecordingIOS: false,
       interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
       playsInSilentModeIOS: true,
-      allowsRecordingIOS: true,
+      playsInSilentLockedModeIOS: true,
       shouldDuckAndroid: true,
-      playThroughEarpieceAndroid: false,
-      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX
+      interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+      playThroughEarpieceAndroid: false
     });
 
     Permissions.askAsync(Permissions.AUDIO_RECORDING);
